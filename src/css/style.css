@@ -1,0 +1,73 @@
+.board {
+    display: flex;
+    width: 100%;
+    min-width: 560px;
+    position: relative;
+    background: darkblue;
+  }
+  
+  .col {
+    display: block;
+    width: 30%;
+    background: lightgrey;
+    margin: 2%;
+  }
+  
+  h3 {
+    padding-left: 5px;
+  }
+
+  .add {
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .task {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    margin-bottom: 10px;
+  }
+  
+  .textarea {
+    width: 95%;
+    resize: vertical;
+    max-height: 200px;
+    overflow: hidden;
+  }
+  
+  [data-id="list"] {
+    list-style-type: none;
+  }
+  
+  .crest {
+    display: none;
+    margin-left: auto;
+    padding: 1px 3px;
+    border-radius: 3px;
+    align-self: start;
+}
+
+.hidden {
+  display: none;
+}
+
+.goal {
+  background-color: rgb(179, 177, 177);
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.task.dragged {
+  position: absolute;
+  z-index: 999;
+  cursor: grabbing;
+}
+  
