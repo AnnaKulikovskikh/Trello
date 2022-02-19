@@ -11,13 +11,13 @@ export default class DragDrop {
 
   init() {
     this.board = document.querySelector('.board');
-    this.board.addEventListener('mousedown', this.down);
-    this.board.addEventListener('mousemove', this.move);
-    this.board.addEventListener('mouseup', this.up);
-    this.board.addEventListener('mouseleave', this.leave);
+    this.board.addEventListener('mousedown', this.mousedown);
+    this.board.addEventListener('mousemove', this.mousemove);
+    this.board.addEventListener('mouseup', this.mouseup);
+    this.board.addEventListener('mouseleave', this.mouseleave);
   }
 
-  down(e) {
+  mousedown(e) {
     if (!e.target.closest('.task') || e.target.classList.contains('crest')) {
       return;
     }
@@ -40,7 +40,7 @@ export default class DragDrop {
     this.goal.style.height = `${this.drag.offsetHeight}px`;
   }
 
-  move(e) {
+  mousemove(e) {
     e.preventDefault();
     if (!this.drag) {
       return;
@@ -68,7 +68,7 @@ export default class DragDrop {
     }
   }
 
-  up(e) {
+  mouseup(e) {
     e.preventDefault();
     if (!this.drag) {
       return;
@@ -104,7 +104,7 @@ export default class DragDrop {
     this.drop = null;
   }
 
-  leave() {
+  mouseleave() {
     if (!this.drag) {
       return;
     }
