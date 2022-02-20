@@ -21,6 +21,7 @@ export default class DragDrop {
     if (!e.target.closest('.task') || e.target.classList.contains('crest')) {
       return;
     }
+    console.log(e.targrt);
     e.preventDefault();
     this.drag = e.target.closest('.task');
     this.drop = this.drag.cloneNode(true);
@@ -36,7 +37,7 @@ export default class DragDrop {
     this.drag.style.opacity = 0;
 
     this.goal = document.createElement('li');
-    this.goal.classList.add('site');
+    this.goal.classList.add('goal');
     this.goal.style.height = `${this.drag.offsetHeight}px`;
   }
 
@@ -50,8 +51,8 @@ export default class DragDrop {
     this.elem = document.elementFromPoint(e.clientX, e.clientY);
     this.drop.classList.remove('hidden');
 
-    this.drop.style.left = `${e.pageX - this.shiftX}px`;
-    this.drop.style.top = `${e.pageY - this.shiftY}px`;
+    this.drop.style.left = `${e.pageX - this.x}px`;
+    this.drop.style.top = `${e.pageY - this.y}px`;
 
     if (this.elem.closest('.col')) {
       const parentEl = this.elem.closest('.col').querySelector('ul');
@@ -83,9 +84,9 @@ export default class DragDrop {
       return;
     }
 
-    const parentUl = this.elemBellow.closest('.col').querySelector('ul');
+    const parentUl = this.elem.closest('.col').querySelector('ul');
 
-    if (this.elemBellow.closest('h3')) {
+    if (this.elem.closest('h3')) {
       parentUl.prepend(this.drop);
     } else if (this.elem.closest('.add')) {
       parentUl.append(this.drop);

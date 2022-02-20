@@ -2,12 +2,12 @@ export default class Cards {
   constructor() {
     this.board = null;
     this.lists = null;
+    this.task = null;
   }
 
   init() {
     this.listenerAddCard();
     this.board.addEventListener('click', this.remove); 
-    this.task = this.board.querySelectorAll('.task');
   }
 
   bindToDOM(board) {
@@ -16,6 +16,7 @@ export default class Cards {
     }
     this.board = board;
     this.lists = this.board.querySelectorAll('ul');
+    this.task = this.board.querySelectorAll('.task');
   }
 
   remove(e) {
@@ -38,7 +39,7 @@ export default class Cards {
         e.target.replaceWith(div);
 
         div.addEventListener('click', (event) => {
-          if (event.target.classList.contains('cross')) {
+          if (event.target.classList.contains('crest')) {
             div.replaceWith(el);
           }
           if (event.target.classList.contains('add') && div.querySelector('.textarea').value !== '') {

@@ -15,9 +15,5 @@ window.addEventListener('unload', () => {
   state.saver(card.save());
 });
 
-// document.querySelector('.click').addEventListener('click', () => {
-//   console.log(card.save());
-// })
-
 const loader = state.loader();
 card.load(loader);
