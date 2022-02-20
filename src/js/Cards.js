@@ -7,7 +7,7 @@ export default class Cards {
 
   init() {
     this.listenerAddCard();
-    this.board.addEventListener('click', this.remove); 
+    this.board.addEventListener('click', this.remove);
   }
 
   bindToDOM(board) {
@@ -27,9 +27,9 @@ export default class Cards {
 
   listenerAddCard() {
     const add = [...document.querySelectorAll('.add')];
-    add.forEach(el => {
+    add.forEach((el) => {
       el.addEventListener('click', (e) => {
-        const div = document.createElement('div'); 
+        const div = document.createElement('div');
         div.classList = 'textarea_div';
         div.innerHTML = `
               <textarea required class="textarea" cols="19" placeholder="New Task"></textarea>
@@ -48,10 +48,10 @@ export default class Cards {
             ul.append(li);
             div.replaceWith(el);
             this.task = this.board.querySelectorAll('.task');
-          }  
-        })  
-      })
-    })
+          }
+        });
+      });
+    });
   }
 
   addCard(text) {
@@ -82,5 +82,4 @@ export default class Cards {
       });
     });
   }
-
 }

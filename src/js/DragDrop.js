@@ -21,7 +21,6 @@ export default class DragDrop {
     if (!e.target.closest('.task') || e.target.classList.contains('crest')) {
       return;
     }
-    console.log(e.targrt);
     e.preventDefault();
     this.drag = e.target.closest('.task');
     this.drop = this.drag.cloneNode(true);
